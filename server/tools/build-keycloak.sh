@@ -32,15 +32,21 @@ if [ "$GIT_REPO" != "" ]; then
     
     echo "maven install finish"
     cd /opt/jboss
+    echo "cd /opt/jboss"
 
     tar xfz /opt/jboss/keycloak-source/distribution/server-dist/target/keycloak-*.tar.gz
+    echo "tar xfz"
     
     mv /opt/jboss/keycloak-* /opt/jboss/keycloak
+    echo "mv keycloak file"
 
     # Remove temporary files
     rm -rf /opt/jboss/maven
+    echo "rm -rf /opt/jboss/maven"
     rm -rf /opt/jboss/keycloak-source
+    echo "rm -rf /opt/jboss/keycloak-source"
     rm -rf $HOME/.m2/repository
+    echo "rm -rf $HOME/.m2/repository"
 else
     echo "Keycloak from [download]: $KEYCLOAK_DIST"
 
