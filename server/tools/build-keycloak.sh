@@ -36,6 +36,9 @@ if [ "$GIT_REPO" != "" ]; then
 
     tar xfz /opt/jboss/keycloak-source/distribution/server-dist/target/keycloak-*.tar.gz
     echo "tar xfz"
+    ls -lh /opt/jboss/
+    echo "ls -lh /opt/jboss/"
+    ls -lh /opt/jboss/keycloak-source/distribution/server-dist/target/
     
     mv /opt/jboss/keycloak-* /opt/jboss/keycloak
     echo "mv keycloak file"
