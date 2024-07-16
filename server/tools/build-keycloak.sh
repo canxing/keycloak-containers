@@ -24,8 +24,9 @@ if [ "$GIT_REPO" != "" ]; then
     # Build
     cd /opt/jboss/keycloak-source
 
-    MASTER_HEAD=`git log -n1 --format="%H"`
-    echo "Keycloak from [build]: $GIT_REPO/$GIT_BRANCH/commit/$MASTER_HEAD"
+    sed -i 's|3.3.6|3.5.8|g' pom.xml
+    # MASTER_HEAD=`git log -n1 --format="%H"`
+    # echo "Keycloak from [build]: $GIT_REPO/$GIT_BRANCH/commit/$MASTER_HEAD"
 
     $M2_HOME/bin/mvn -Pdistribution -pl distribution/server-dist -am -Dmaven.test.skip clean install
     
