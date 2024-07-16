@@ -24,12 +24,11 @@ if [ "$GIT_REPO" != "" ]; then
     # Build
     cd /opt/jboss/keycloak-source
 
-    sed -i 's|<description/>|
-    <properties>
-        <cxf.version>3.5.8</cxf.version>
-        <cxf.jetty.version>3.5.8</cxf.jetty.version>
-        <cxf.jaxrs.version>3.5.8</cxf.jaxrs.version>
-        <cxf.undertow.version>3.5.8</cxf.undertow.version>
+    sed -i 's|<description/>|<properties> \
+        <cxf.version>3.5.8</cxf.version> \
+        <cxf.jetty.version>3.5.8</cxf.jetty.version> \
+        <cxf.jaxrs.version>3.5.8</cxf.jaxrs.version> \
+        <cxf.undertow.version>3.5.8</cxf.undertow.version> \
     </properties>|g' distribution/server-dist/pom.xml
     cat pom.xml
     # MASTER_HEAD=`git log -n1 --format="%H"`
