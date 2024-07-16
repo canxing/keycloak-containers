@@ -36,9 +36,9 @@ if [ "$GIT_REPO" != "" ]; then
 
     tar xfz /opt/jboss/keycloak-source/distribution/server-dist/target/keycloak-*.tar.gz
     echo "tar xfz"
-    ls -lh /opt/jboss/
-    echo "ls -lh /opt/jboss/"
-    ls -lh /opt/jboss/keycloak-source/distribution/server-dist/target/
+
+    rm -rf /opt/jboss/keycloak-source
+    echo "rm -rf /opt/jboss/keycloak-source"
     
     mv /opt/jboss/keycloak-* /opt/jboss/keycloak
     echo "mv keycloak file"
@@ -46,8 +46,6 @@ if [ "$GIT_REPO" != "" ]; then
     # Remove temporary files
     rm -rf /opt/jboss/maven
     echo "rm -rf /opt/jboss/maven"
-    rm -rf /opt/jboss/keycloak-source
-    echo "rm -rf /opt/jboss/keycloak-source"
     rm -rf $HOME/.m2/repository
     echo "rm -rf $HOME/.m2/repository"
 else
