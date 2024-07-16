@@ -25,6 +25,7 @@ if [ "$GIT_REPO" != "" ]; then
     cd /opt/jboss/keycloak-source
 
     sed -i 's|3.3.6|3.5.8|g' pom.xml
+    cat pom.xml
     # MASTER_HEAD=`git log -n1 --format="%H"`
     # echo "Keycloak from [build]: $GIT_REPO/$GIT_BRANCH/commit/$MASTER_HEAD"
 
