@@ -32,8 +32,7 @@ if [ "$GIT_REPO" != "" ]; then
         <cxf.undertow.version>3.5.8</cxf.undertow.version> \
     </properties>|g' distribution/server-dist/pom.xml
 
-    sed -i 's|<description/>|<properties> \
-        <cxf.version>3.5.8</cxf.version> \
+    sed -i 's|</properties>|        <cxf.version>3.5.8</cxf.version> \
         <cxf.jetty.version>3.5.8</cxf.jetty.version> \
         <cxf.jaxrs.version>3.5.8</cxf.jaxrs.version> \
         <cxf.undertow.version>3.5.8</cxf.undertow.version> \
