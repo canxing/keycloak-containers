@@ -52,7 +52,7 @@ if [ "$GIT_REPO" != "" ]; then
 
     tar xfz /opt/jboss/keycloak-source/distribution/server-dist/target/keycloak-*.tar.gz
 
-    mv -rf /opt/jboss/keycloak-source /opt/jboss/source
+    mv /opt/jboss/keycloak-source /opt/jboss/source
     
     mv /opt/jboss/keycloak-* /opt/jboss/keycloak
     ls /opt/jboss/keycloak/modules/system/layers/base/org/apache/cxf/*/*
