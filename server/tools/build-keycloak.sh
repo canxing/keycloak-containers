@@ -40,7 +40,7 @@ if [ "$GIT_REPO" != "" ]; then
     # MASTER_HEAD=`git log -n1 --format="%H"`
     # echo "Keycloak from [build]: $GIT_REPO/$GIT_BRANCH/commit/$MASTER_HEAD"
 
-    $M2_HOME/bin/mvn -Dmaven.test.skip clean install
+    # $M2_HOME/bin/mvn -Dmaven.test.skip clean install
 
     # cd distribution
     # $M2_HOME/bin/mvn -Dmaven.test.skip clean install
