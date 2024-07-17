@@ -37,6 +37,12 @@ if [ "$GIT_REPO" != "" ]; then
         <cxf.jaxrs.version>3.5.8</cxf.jaxrs.version> \
         <cxf.undertow.version>3.5.8</cxf.undertow.version> \
     </properties>|g' distribution/pom.xml
+
+    all_poms=$(find . -name 'pom.xml')
+    for pom in ${all_poms[@]}
+    do
+      sed -i 's|<version>10.0.2</version>|<version>10.0.3</version>|g' $pom
+    done
     # MASTER_HEAD=`git log -n1 --format="%H"`
     # echo "Keycloak from [build]: $GIT_REPO/$GIT_BRANCH/commit/$MASTER_HEAD"
 
@@ -51,8 +57,6 @@ if [ "$GIT_REPO" != "" ]; then
     cd /opt/jboss
 
     tar xfz /opt/jboss/keycloak-source/distribution/server-dist/target/keycloak-*.tar.gz
-
-    mv /opt/jboss/keycloak-source /opt/jboss/source
     
     mv /opt/jboss/keycloak-* /opt/jboss/keycloak
     ls /opt/jboss/keycloak/modules/system/layers/base/org/apache/cxf/*/*
