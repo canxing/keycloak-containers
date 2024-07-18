@@ -46,6 +46,7 @@ if [ "$GIT_REPO" != "" ]; then
       sed -i 's|<version>${cxf.jetty.version}</version>|<version>3.5.8</version>|g' $pom
       sed -i 's|<version>${cxf.jaxrs.version}</version>|<version>3.5.8</version>|g' $pom
       sed -i 's|<version>${cxf.undertow.version}</version>|<version>3.5.8</version>|g' $pom
+      sed -i 's|[3,4)|[3.5.8,4)|g' $pom
     done
     $M2_HOME/bin/mvn dependency:tree > /opt/jboss/mvn-dependency.txt
     # MASTER_HEAD=`git log -n1 --format="%H"`
