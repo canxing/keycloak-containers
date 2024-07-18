@@ -24,29 +24,30 @@ if [ "$GIT_REPO" != "" ]; then
     # Build
     cd /opt/jboss/keycloak-source
 
-    sed -i 's|3.3.6|3.5.8|g' pom.xml
+    sed -i 's|3.3.6|4.0.0|g' pom.xml
+    sed -i 's|19.1.0.Final|28.0.1.Final|g' pom.xml
     sed -i 's|<description/>|<properties> \
-        <cxf.version>3.5.8</cxf.version> \
-        <cxf.jetty.version>3.5.8</cxf.jetty.version> \
-        <cxf.jaxrs.version>3.5.8</cxf.jaxrs.version> \
-        <cxf.undertow.version>3.5.8</cxf.undertow.version> \
+        <cxf.version>4.0.0</cxf.version> \
+        <cxf.jetty.version>4.0.0</cxf.jetty.version> \
+        <cxf.jaxrs.version>4.0.0</cxf.jaxrs.version> \
+        <cxf.undertow.version>4.0.0</cxf.undertow.version> \
     </properties>|g' distribution/server-dist/pom.xml
 
-    sed -i 's|</properties>|        <cxf.version>3.5.8</cxf.version> \
-        <cxf.jetty.version>3.5.8</cxf.jetty.version> \
-        <cxf.jaxrs.version>3.5.8</cxf.jaxrs.version> \
-        <cxf.undertow.version>3.5.8</cxf.undertow.version> \
+    sed -i 's|</properties>|        <cxf.version>4.0.0</cxf.version> \
+        <cxf.jetty.version>4.0.0</cxf.jetty.version> \
+        <cxf.jaxrs.version>4.0.0</cxf.jaxrs.version> \
+        <cxf.undertow.version>4.0.0</cxf.undertow.version> \
     </properties>|g' distribution/pom.xml
 
     all_poms=$(find . -name 'pom.xml')
     for pom in ${all_poms[@]}
     do
       sed -i 's|<version>10.0.2</version>|<version>10.0.3</version>|g' $pom
-      sed -i 's|<version>${cxf.version}</version>|<version>3.5.8</version>|g' $pom
-      sed -i 's|<version>${cxf.jetty.version}</version>|<version>3.5.8</version>|g' $pom
-      sed -i 's|<version>${cxf.jaxrs.version}</version>|<version>3.5.8</version>|g' $pom
-      sed -i 's|<version>${cxf.undertow.version}</version>|<version>3.5.8</version>|g' $pom
-      sed -i 's|\[3,4)|\[3.5.8,4)|g' $pom
+      sed -i 's|<version>${cxf.version}</version>|<version>4.0.0</version>|g' $pom
+      sed -i 's|<version>${cxf.jetty.version}</version>|<version>4.0.0</version>|g' $pom
+      sed -i 's|<version>${cxf.jaxrs.version}</version>|<version>4.0.0</version>|g' $pom
+      sed -i 's|<version>${cxf.undertow.version}</version>|<version>4.0.0</version>|g' $pom
+      sed -i 's|\[3,4)|\[4.0.0,4)|g' $pom
     done
     $M2_HOME/bin/mvn dependency:tree > /opt/jboss/mvn-dependency.txt
     # MASTER_HEAD=`git log -n1 --format="%H"`
