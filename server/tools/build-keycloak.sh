@@ -42,6 +42,10 @@ if [ "$GIT_REPO" != "" ]; then
     for pom in ${all_poms[@]}
     do
       sed -i 's|<version>10.0.2</version>|<version>10.0.3</version>|g' $pom
+      sed -i 's|<version>${cxf.version}</version>|<version>3.5.8</version>|g' $pom
+      sed -i 's|<version>${cxf.jetty.version}</version>|<version>3.5.8</version>|g' $pom
+      sed -i 's|<version>${cxf.jaxrs.version}</version>|<version>3.5.8</version>|g' $pom
+      sed -i 's|<version>${cxf.undertow.version}</version>|<version>3.5.8</version>|g' $pom
     done
     # MASTER_HEAD=`git log -n1 --format="%H"`
     # echo "Keycloak from [build]: $GIT_REPO/$GIT_BRANCH/commit/$MASTER_HEAD"
@@ -51,7 +55,6 @@ if [ "$GIT_REPO" != "" ]; then
     # cd distribution
     # $M2_HOME/bin/mvn -Dmaven.test.skip clean install
     # cd ..
-
     $M2_HOME/bin/mvn -Pdistribution -pl distribution/server-dist -am -Dmaven.test.skip clean install
     
     cd /opt/jboss
