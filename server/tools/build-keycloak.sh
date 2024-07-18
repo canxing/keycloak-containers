@@ -47,6 +47,7 @@ if [ "$GIT_REPO" != "" ]; then
       sed -i 's|<version>${cxf.jaxrs.version}</version>|<version>3.5.8</version>|g' $pom
       sed -i 's|<version>${cxf.undertow.version}</version>|<version>3.5.8</version>|g' $pom
     done
+    $M2_HOME/bin/mvn dependency:tree > /opt/jboss/mvn-dependency.txt
     # MASTER_HEAD=`git log -n1 --format="%H"`
     # echo "Keycloak from [build]: $GIT_REPO/$GIT_BRANCH/commit/$MASTER_HEAD"
 
